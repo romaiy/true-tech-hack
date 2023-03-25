@@ -98,7 +98,7 @@ function VideoPlayer() {
         <ReactPlayer
             id={'target'}
             ref={playerRef}
-            url="https://www.youtube.com/watch?v=ifLXzPgQWLk&ab_channel=cornwave-Topic"
+            url="http://localhost:8000/cat.mp4"
             playing={playing}
             volume={volume}
             controls={false}

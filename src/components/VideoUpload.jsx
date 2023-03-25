@@ -16,6 +16,7 @@ const VideoUpload = () => {
     const handleVideoSubmit = async file => {
         const formData = new FormData();
         formData.append('file', file);
+        formData.append('filename', file.name)
 
         try {
             const response = await axios.post(VIDEO_UPLOAD_URL, formData, {
