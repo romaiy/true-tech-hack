@@ -1,0 +1,26 @@
+.video-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.controls-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    padding: 5px;
+}
+
+.controls-row {
+    padding-left: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.volume, .progress {
+    width: 100%;
+    margin: 0 5px;
+}
