@@ -1,6 +1,7 @@
 import React from "react";
 import routes from "../utils/routes";
 import logo from "../image/home/logo.svg";
+import profile from "../image/home/profile.svg";
 
 const Header = () => {
     return(
@@ -12,11 +13,14 @@ const Header = () => {
                         <ul className="header__list">
                         {routes.map((item) => {
                             return(
-                                <li key={item.id}>{item.text}</li>
+                                <li className="header__block" key={item.id}>{item.text}</li>
                             )
                         })}
                         </ul>
                     </nav>
+                    <div className="header__profile">
+                        <img src={profile} alt="profile"/>
+                    </div>
                 </div>
             </div>
         </header>

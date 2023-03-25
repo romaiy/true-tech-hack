@@ -8,7 +8,6 @@ const VideoUpload = () => {
     const handleFileSelect = e => {
         const fileInput = e.target;
         const file = fileInput.files[0];
-
         if (file) {
             handleVideoSubmit(file);
         }

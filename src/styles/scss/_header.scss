@@ -2,9 +2,45 @@
     &__row {
         display: flex;
         align-items: center;
+        justify-content: space-between;
     }
     &__list {
         display: flex;
         align-items: center;
+    }
+    &__block {
+        float: left;
+        padding: 12px 24px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        margin-right: 16px;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: relative;
+        color: inherit;
+        text-decoration: none;
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            transition: transform .5s ease;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover {
+            color: #BB9A4D;
+        }
+        &:before {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: #BB9A4D;
+            transform:  scaleX(0);
+        }
+        &:hover:before {
+            transform:  scaleX(1);
+        }
     }
 }
