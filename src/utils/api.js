@@ -1,4 +1,4 @@
-const API_URL = 'https://example.com/api';
-const VIDEO_UPLOAD_URL = `${API_URL}/videos/upload`;
+const API_URL = 'http://localhost:8000';
+const VIDEO_UPLOAD_URL = `${API_URL}/save`;
 
 export { API_URL, VIDEO_UPLOAD_URL };
