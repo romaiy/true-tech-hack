@@ -1,4 +1,4 @@
-$maxWidthContainer: 1080;
+$maxWidthContainer: 1088;
 $md1: $maxWidthContainer + 12;
 $md2: 991.98;
 $md3: 767.98;
@@ -6,6 +6,9 @@ $md4: 479.98;
 
 @import "_reset";
 @import "_main";
+
+@import "_download";
+@import "_header";
 
 .container {
     max-width: $maxWidthContainer + px;
@@ -20,6 +23,12 @@ $md4: 479.98;
         max-width: none;
         padding: 0 16px;
     }
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .wrapper {

@@ -1,0 +1,63 @@
+.download {
+    background: #061E31;
+    border-radius: 24px;
+    padding: 24px 56px 48px;
+    &__heading {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 24px;
+    }
+    &__text {
+        width: 603.43px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 24px;
+    }
+    &__input {
+        position: relative;
+        display: inline-block;
+        span {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 24px;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            outline: none;
+            text-decoration: none;
+            vertical-align: middle;
+            color: #000000;
+            text-align: center;
+            border-radius: 8px;
+            background-color: #BB9A4D;
+            height: 48px;
+            padding: 12px 24px;
+            box-sizing: border-box;
+            border: none;
+            margin: 0;
+            transition: background-color 0.4s;
+        }
+        input[type=file] {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+            display: block;
+            width: 0;
+            height: 0;
+        }
+        input[type=file]:focus + span {
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+        &:hover span {
+            background: #E6C781;
+        }
+        &:active span {
+            background-color: #9a7f40;
+        }
+        input[type=file]:disabled + span {
+            background-color: #eee;
+        }
+    }
+}

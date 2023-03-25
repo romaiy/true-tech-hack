@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
-import ControlsVideo from '../../components/ControlsVideo';
+import VideoControls from '../../components/VideoControls';
 import './VideoPlayer.css';
 
 function VideoPlayer() {
@@ -9,8 +9,11 @@ function VideoPlayer() {
     const [played, setPlayed] = useState(0);
     const [seeking, setSeeking] = useState(false);
     const [playing, setPlaying] = useState(false);
-    const playerRef = useRef(null);
+    const [duration, setDuration] = useState(null);
+    const [timeRemaining, setTimeRemaining] = useState(0);
+    const [screenState, setScreenState] = useState(false);
     const playerRefContainer = useRef(null);
+    const playerRef = useRef(null);
 
     const handleVolumeChange = (e) => {
         setVolume(parseFloat(e.target.value));
@@ -46,9 +49,15 @@ function VideoPlayer() {
     };
 
     const handleProgress = (state) => {
+        const timeRemaining = duration - state.playedSeconds;
+        setTimeRemaining(timeRemaining);
         if (!seeking) {
         setPlayed(state.played);
         }
+    };
+
+    const handleDuration = (duration) => {
+        setDuration(duration);
     };
 
     const handlePlay = () => {
@@ -61,6 +70,27 @@ function VideoPlayer() {
 
     const handleFullscreenClick = () => {
         screenfull.toggle(playerRefContainer.current);
+        fullscreenIcon();
+    };
+
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        const formattedMinutes = String(minutes).padStart(2, '0');
+        const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+        return `- ${formattedMinutes}:${formattedSeconds}`;
+    };
+
+    const fullscreenIcon = () => {
+        if (screenfull.isEnabled) {
+            if (screenfull.isFullscreen) {
+                setScreenState(true);
+            } else {
+                setScreenState(false);
+            }
+            } else {
+                setScreenState(false);
+        }
     };
 
     return (
@@ -68,11 +98,12 @@ function VideoPlayer() {
         <ReactPlayer
             id={'target'}
             ref={playerRef}
-            url="<https://www.youtube.com/watch?v=ifLXzPgQWLk&ab_channel=cornwave-Topic>"
+            url="https://www.youtube.com/watch?v=ifLXzPgQWLk&ab_channel=cornwave-Topic"
             playing={playing}
             volume={volume}
             controls={false}
             onProgress={handleProgress}
+            onDuration={handleDuration}
             width= "100%"
             height= "100%"
             onPlay={handlePlay}
@@ -80,12 +111,13 @@ function VideoPlayer() {
             config={{ file: { attributes: { controlsList: 'nodownload' } } }}
             onContextMenu={e => e.preventDefault()}
         />
-        <ControlsVideo
+        <VideoControls
             handlePlay={handlePlay}
             handlePause={handlePause}
-            volume={volume}
             playing={playing}
             played={played}
+            timeRemaining={timeRemaining}
+            screenState={screenState}
             func={{
                 handleSeekMouseDown,
                 handleSeekMouseUp,
@@ -94,6 +126,7 @@ function VideoPlayer() {
                 handleVolumeChange,
                 handleVolumeUp,
                 handleVolumeDown,
+                formatTime,
             }}
         />
         </div>
