@@ -7,25 +7,6 @@ const VideoList = () => {
     const [videoData, setVideoData] = useState(null);
     const [keysData, setKeysData] = useState();
 
-    const data = {
-        'Боевики': [
-            {
-                name: '1 a'
-            },
-            {
-                name: '1 b'
-            },
-        ],
-        'Гонки': [
-            {
-                name: '1 c'
-            },
-            {
-                name: '1 d'
-            },
-        ],
-    };
-
     useEffect(() => {
         axios.get(VIDEO_PARSE_URL)
         .then(response => {
@@ -36,7 +17,6 @@ const VideoList = () => {
             console.log(error);
         });
     }, [videoData]);
-    const keys = Object.keys(data);
 
     console.log(videoData);
     console.log(keysData);

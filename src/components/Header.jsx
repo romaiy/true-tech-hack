@@ -2,6 +2,7 @@ import React from "react";
 import routes from "../utils/routes";
 import logo from "../image/home/logo.svg";
 import profile from "../image/home/profile.svg";
+import { useLocation, NavLink } from 'react-router-dom';
 
 const Header = () => {
     const location = useLocation();

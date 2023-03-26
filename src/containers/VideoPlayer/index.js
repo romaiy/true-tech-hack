@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
 import VideoControls from '../../components/VideoControls';
@@ -14,6 +15,11 @@ function VideoPlayer() {
     const [screenState, setScreenState] = useState(true);
     const playerRefContainer = useRef(null);
     const playerRef = useRef(null);
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate(-1);
+    };
 
     const handleVolumeChange = (e) => {
         setVolume(parseFloat(e.target.value));
@@ -98,7 +104,7 @@ function VideoPlayer() {
         <ReactPlayer
             id={'target'}
             ref={playerRef}
-            url="http://localhost:8080/video/cat.mp4"
+            url="https://www.youtube.com/watch?v=3cnKTOosN40&ab_channel=Rudi1k"
             playing={playing}
             volume={volume}
             controls={false}
@@ -127,6 +133,7 @@ function VideoPlayer() {
                 handleVolumeUp,
                 handleVolumeDown,
                 formatTime,
+                handleBack,
             }}
         />
         </div>

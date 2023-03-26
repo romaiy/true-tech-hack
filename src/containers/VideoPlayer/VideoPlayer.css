@@ -13,6 +13,15 @@
     width: 100%;
 }
 
+.controls-wrapper-up {
+    cursor: pointer;
+    padding: 32px 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 .controls-row {
     display: flex;
     align-items: center;

@@ -7,6 +7,7 @@ import down from '../image/volume-minus.svg';
 import skip from '../image/skip.svg';
 import screenUp from '../image/ScreenUp.svg';
 import screenDown from '../image/ScreenDown.svg';
+import back from '../image/back.svg'
 
 const VideoControls = ({
     handlePlay,
@@ -19,6 +20,10 @@ const VideoControls = ({
 }) => {
     
     return(
+        <div>
+        <div className="controls-wrapper-up">
+            <img alt="back" style={{width: '40px', heigh: '40px'}} src={back} onClick={func.handleBack}/>
+        </div>
         <div className="controls-wrapper">
             <div className="controls-row" style={{justifyContent: 'space-between'}}>
                 <input
@@ -62,6 +67,7 @@ const VideoControls = ({
                     <img alt="fullscreen" src={(screenState) ? screenUp : screenDown}/>
                 </button>
             </div>
+        </div>    
         </div>
     );
 };
