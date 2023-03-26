@@ -1,4 +1,5 @@
 import React from "react";
+import VideoList from "../../components/VideoList";
 import VideoUpload from "../../components/VideoUpload";
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
         <div className="home">
             <div className="home__content container">
                 <VideoUpload/>
+                <VideoList/>
             </div>
         </div>
     );
