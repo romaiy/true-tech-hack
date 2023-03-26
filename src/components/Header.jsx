@@ -2,7 +2,6 @@ import React from "react";
 import routes from "../utils/routes";
 import logo from "../image/home/logo.svg";
 import profile from "../image/home/profile.svg";
-import { useLocation, NavLink } from 'react-router-dom';
 
 const Header = () => {
     const location = useLocation();
@@ -17,8 +16,8 @@ const Header = () => {
                             <ul className="header__list">
                             {routes.map((item) => {
                                 return(
-                                    <NavLink to={item.path} key={item.id}>
-                                        <li className="header__block">{item.text}</li>
+                                    <NavLink to={item.path}>
+                                        <li className="header__block" key={item.id}>{item.text}</li>
                                     </NavLink>
                                 )
                             })}

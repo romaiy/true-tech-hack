@@ -198,10 +198,6 @@ body {
   background-color: #eee;
 }
 
-.header {
-  padding: 24px 0px;
-  margin-bottom: 32px;
-}
 .header__row {
   display: flex;
   align-items: center;

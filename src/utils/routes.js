@@ -11,7 +11,7 @@ const routes = [
     },
     {
         id: 2,
-        path: '/player',
+        path: '/',
         text: 'Плеер',
     },
 ];

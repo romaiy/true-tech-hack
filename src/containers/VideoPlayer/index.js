@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
 import VideoControls from '../../components/VideoControls';
-import { useNavigate } from 'react-router-dom';
 import './VideoPlayer.css';
 
 function VideoPlayer() {
@@ -15,12 +14,6 @@ function VideoPlayer() {
     const [screenState, setScreenState] = useState(true);
     const playerRefContainer = useRef(null);
     const playerRef = useRef(null);
-
-    const navigate = useNavigate();
-
-    function handleBack() {
-        navigate(-1);
-    };
 
     const handleVolumeChange = (e) => {
         setVolume(parseFloat(e.target.value));
@@ -134,7 +127,6 @@ function VideoPlayer() {
                 handleVolumeUp,
                 handleVolumeDown,
                 formatTime,
-                handleBack,
             }}
         />
         </div>
