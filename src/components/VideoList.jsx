@@ -36,14 +36,15 @@ const VideoList = () => {
             console.log(error);
         });
     }, [videoData]);
-
+    const keys = Object.keys(data);
 
     console.log(videoData);
+    console.log(keysData);
     
     return(
         <div className="video-list">
-            {videoData && videoData.map((key) => (
-                <VideoGenre key={key} genre={key} films={data[key]}/>
+            {keysData && keysData.map((key) => (
+                <VideoGenre key={key} genre={key} films={videoData[key]}/>
             ))}
         </div>
     );

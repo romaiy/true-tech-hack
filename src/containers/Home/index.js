@@ -7,8 +7,8 @@ const Home = () => {
     return(
         <div className="home">
             <div className="home__content container">
-                <VideoUpload/>
                 <VideoList/>
+                <VideoUpload/>
             </div>
         </div>
     );
