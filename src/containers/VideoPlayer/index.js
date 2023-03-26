@@ -12,7 +12,7 @@ function VideoPlayer() {
     const [playing, setPlaying] = useState(false);
     const [duration, setDuration] = useState(null);
     const [timeRemaining, setTimeRemaining] = useState(0);
-    const [screenState, setScreenState] = useState(false);
+    const [screenState, setScreenState] = useState(true);
     const playerRefContainer = useRef(null);
     const playerRef = useRef(null);
 
@@ -105,7 +105,7 @@ function VideoPlayer() {
         <ReactPlayer
             id={'target'}
             ref={playerRef}
-            url="https://www.youtube.com/watch?v=-VwhA_-afto&ab_channel=CornWave-Topic"
+            url="http://localhost:8080/video/cat.mp4"
             playing={playing}
             volume={volume}
             controls={false}

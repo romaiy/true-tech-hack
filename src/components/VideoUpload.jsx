@@ -31,15 +31,15 @@ const VideoUpload = () => {
     };
 
     return (
-        <div className="download">
-            <div className="download__content">
-                <div className="download__row row">
-                    <div className="download__column">
-                        <h2 className="download__heading">Запросить аудиосопровождение <br/>
+        <div className="upload">
+            <div className="upload__content">
+                <div className="upload__row row">
+                    <div className="upload__column">
+                        <h2 className="upload__heading">Запросить аудиосопровождение <br/>
                             для конкретного фильма
                         </h2>
-                        <p className="download__text">У фильма, который вы хотели посмотреть, нет тифлокомментариев? Вы можете запросить у сервиса их создание!</p>
-                        <label className="download__input">
+                        <p className="upload__text">У фильма, который вы хотели посмотреть, нет тифлокомментариев? Вы можете запросить у сервиса их создание!</p>
+                        <label className="upload__input">
                             <input type="file" id="video-uploader" accept="video/*" onChange={(e) => handleFileSelect(e)} />		
                             <span>Запросить аудиосопровождение</span>
                         </label>
