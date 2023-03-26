@@ -6,21 +6,22 @@ import VideoGenre from "./VideoGenre";
 const VideoList = () => {
     const [videoData, setVideoData] = useState(null);
     const [keysData, setKeysData] = useState();
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        axios.get(VIDEO_PARSE_URL)
-        .then(response => {
-            setVideoData(response.data);
-            setKeysData(Object.keys(videoData));
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    }, [videoData]);
+        if (!isLoaded) {
+            axios.get(VIDEO_PARSE_URL)
+            .then(response => {
+                setVideoData(response.data);
+                setKeysData(Object.keys(videoData));
+            })
+            .catch(error => {
+                console.log(error);
+            });
+            setIsLoaded(true);
+        }
+    }, [videoData, isLoaded]);
 
-    console.log(videoData);
-    console.log(keysData);
-    
     return(
         <div className="video-list">
             {keysData && keysData.map((key) => (

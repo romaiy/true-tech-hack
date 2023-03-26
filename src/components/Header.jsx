@@ -17,8 +17,8 @@ const Header = () => {
                             <ul className="header__list">
                             {routes.map((item) => {
                                 return(
-                                    <NavLink to={item.path}>
-                                        <li className="header__block" key={item.id}>{item.text}</li>
+                                    <NavLink to={item.path} key={item.id}>
+                                        <li className="header__block">{item.text}</li>
                                     </NavLink>
                                 )
                             })}
