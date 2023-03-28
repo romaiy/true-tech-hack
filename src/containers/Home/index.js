@@ -124,7 +124,7 @@ const Home = () => {
         <div className="home">
             <div className="home__content container">
                 <VideoUpload handleFileSelect={handleFileSelect} handleClose={handleClose} style={style}/>
-                <VideoList data={data} keys={keys}/>
+                <VideoList data={videoData} keys={keysData}/>
             </div>
         </div>
     );

@@ -114,7 +114,7 @@ const Catalog = () => {
                     Категории фильмов 
                 </div>
                 <CatalogGenre handleGenreChange={handleGenreChange} activeGenre={activeGenre} allGenres={allGenres}/>
-                <VideoList activeGenre={activeGenre} data={data} keys={keys}/>
+                <VideoList activeGenre={activeGenre} data={videoData} keys={keysData}/>
             </div>
         </div>
     );
