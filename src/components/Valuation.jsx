@@ -1,7 +1,7 @@
 import React from "react";
 import VideoPlayer from "../containers/VideoPlayer";
 
-const Valuation = ({lastAudio}) => {
+const Valuation = ({lastAudio, handleTextChange, text, handleSubmit}) => {
 
     return(
         <div className="valuation">
@@ -30,10 +30,15 @@ const Valuation = ({lastAudio}) => {
                 </div>
             </div>}
             {(!lastAudio[0].length) ? <></> :
-            <div className="valuation__column">
-                <textarea className="valuation__area"></textarea>
-                <div className="valuation__btn">Отправить</div>
-            </div>}
+            <form onSubmit={(e) => handleSubmit(e)} className="valuation__column">
+                <textarea 
+                    value={text} 
+                    onChange={(e) => handleTextChange(e)} 
+                    placeholder="Введите подходящее по вашему мнению описание" 
+                    className="valuation__area"
+                />
+                <button type="submit" className="valuation__btn">Отправить</button>
+            </form>}
         </div>
     );
 };

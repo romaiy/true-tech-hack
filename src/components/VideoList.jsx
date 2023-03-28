@@ -6,7 +6,7 @@ const VideoList = ({data, keys, activeGenre }) => {
     if (activeGenre) {
         return(
             <div className="video-list">
-                <VideoGenre genre={activeGenre} films={data[activeGenre]}/>
+                { (data) ? <VideoGenre genre={activeGenre} films={data[activeGenre]}/> : <>123</>}
             </div>
         );
     } else {

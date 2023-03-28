@@ -126,13 +126,14 @@ function VideoPlayer({cName, lastAudio}) {
         />
         <ReactPlayer
             url={(lastAudio) ? lastAudio[0] : location.state}
+            style={{zIndex: -1000}}
             ref={playerRef}
             playing={playing}
             volume={volume}
             controls={false}
             onProgress={handleProgress}
-            width= "100%"
-            height= "100%"
+            width= "0"
+            height= "0"
             onPlay={handlePlay}
             onPause={handlePause}
             config={{ file: 

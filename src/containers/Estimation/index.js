@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState } from 'react';
+import axios from 'axios';
 import Card from "../../components/Card";
 import Valuation from "../../components/Valuation";
 import { lastLink } from "../../Data/lastLink";
 import image from '../../image/Picture-estimation.png';
+import { EVALUATION_POST_URL } from '../../utils/api';
 
 const Estimation = () => {
-    console.log(lastLink)
+
+    const [text, setText] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post(EVALUATION_POST_URL, { text })
+        .then(response => {
+            console.log(response.data);
+            setText('');
+        })
+        .catch(error => {
+            console.error(error);
+            setText('');
+        });
+    }
+    
+    const handleTextChange = (event) => {
+        setText(event.target.value);
+    }
 
     return(
         <div className="estimation">
@@ -19,7 +39,7 @@ const Estimation = () => {
                         а в конце месяца получайте бонусы за помощь в том, чтобы сделать сервис доступнее!
                     </p>
                 </Card>
-                <Valuation lastAudio={lastLink}/>
+                <Valuation handleTextChange={handleTextChange} text={text} handleSubmit={handleSubmit} lastAudio={lastLink}/>
             </div>
         </div>
     );

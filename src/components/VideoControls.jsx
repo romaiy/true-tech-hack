@@ -19,7 +19,7 @@ const VideoControls = ({
     screenState,
     func,
 }) => {
-    console.log(cName);
+    
     return(
         <div>
         <div style={(cName === 'estimation-wrapper') ? {display: 'none'} : {}} className="controls-wrapper-up">
