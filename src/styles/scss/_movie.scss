@@ -30,6 +30,10 @@
         line-height: 24px;
         color: #000000;
         cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+            background: #BB9A4D;
+        }
     }
     &__name {
         margin-bottom: 4px;

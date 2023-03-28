@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import film from '../image/movies/video.svg';
 
 const MovieReceived = ({movie}) => {
@@ -16,9 +17,11 @@ const MovieReceived = ({movie}) => {
                             <div className="movie__state">Обработка</div>
                         </div>
                     </div>
-                    <div className="movie__btn">
-                        Смотреть
-                    </div>
+                    <NavLink to={'/player'} state={[movie.audurl, movie.vidurl]}>
+                        <div className="movie__btn">
+                            Смотреть
+                        </div>
+                    </NavLink>
                 </div>
             </div>
         </li>

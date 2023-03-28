@@ -21,7 +21,13 @@ function VideoPlayer({cName, lastAudio}) {
 
     useEffect(() => {
         if (location.state) {
-            lastLink.splice(0, 1, location.state);
+            if (location.state.length === 2) {
+                lastLink.splice(0, 1, location.state[0]);
+                lastLink.splice(1, 1, location.state[1]);
+            } else {
+                lastLink.splice(0, 1, location.state);
+                lastLink.splice(1, 1, 2);
+            }
         }
     }, [location.state]);
 
@@ -108,7 +114,12 @@ function VideoPlayer({cName, lastAudio}) {
         <ReactPlayer
             id={'target'}
             ref={playerRef}
-            url={'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut'}
+            url={(lastAudio) ? (lastAudio[1] !== 2) ?
+                lastAudio[1] : 'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut' 
+                : (location.state) ?
+                (location.state.length === 2) ? location.state[1] :
+                'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut' :
+                'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut'}
             playing={playing}
             volume={0}
             controls={false}
@@ -125,7 +136,8 @@ function VideoPlayer({cName, lastAudio}) {
             onContextMenu={e => e.preventDefault()}
         />
         <ReactPlayer
-            url={(lastAudio) ? lastAudio[0] : location.state}
+            url={(lastAudio) ? lastAudio[0] :
+            (location.state) ? (location.state.length === 2) ? location.state[0] : location.state : lastAudio[0]}
             style={{zIndex: -1000}}
             ref={playerRef}
             playing={playing}

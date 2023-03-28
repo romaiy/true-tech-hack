@@ -1,1 +1,1 @@
-export const lastLink = [1];
+export const lastLink = [1, 2];

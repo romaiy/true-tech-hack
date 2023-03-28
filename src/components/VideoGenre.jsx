@@ -6,7 +6,7 @@ const VideoGenre = ({genre, films}) => {
     const location = useLocation();
     
     if (location.pathname === '/') {
-        if (genre === 'Детектив') {
+        if (genre === 'Детективы') {
             return;
         } else {
             return(
