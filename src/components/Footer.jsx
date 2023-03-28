@@ -7,7 +7,7 @@ const Footer = () => {
     const location = useLocation();
     if (location.pathname !== '/player') {
         return(
-            <div className="footer" style={(location.pathname === "/") ? {position: "inherit"} : {position: "absolute"}}>
+            <div className="footer">
                 <div className="footer__content container">
                     <div className="footer__column">
                         <div className="footer__row">

@@ -5,7 +5,6 @@
     &__row {
         display: flex;
         align-items: center;
-        justify-content: space-between;
     }
     &__list {
         display: flex;
@@ -45,6 +44,12 @@
         &:hover:before {
             transform:  scaleX(1);
         }
+    }
+    &__profile {
+        margin-left: auto;
+    }
+    &__logo {
+        margin-right: 64px;
     }
 }
 

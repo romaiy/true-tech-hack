@@ -1,24 +1,29 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
 import VideoControls from '../../components/VideoControls';
 import './VideoPlayer.css';
+import { lastLink } from '../../Data/lastLink';
 
-function VideoPlayer() {
+function VideoPlayer({cName, lastAudio}) {
     const [volume, setVolume] = useState(0.1);
     const [played, setPlayed] = useState(0);
     const [seeking, setSeeking] = useState(false);
     const [playing, setPlaying] = useState(false);
-    const [duration, setDuration] = useState(null);
     const [timeRemaining, setTimeRemaining] = useState(0);
     const [screenState, setScreenState] = useState(true);
     const playerRefContainer = useRef(null);
     const playerRef = useRef(null);
     const navigate = useNavigate();
-    
     const location = useLocation();
+
+    useEffect(() => {
+        if (location.state) {
+            lastLink.splice(0, 1, location.state);
+        }
+    }, [location.state]);
 
     const handleBack = () => {
         navigate(-1);
@@ -58,15 +63,11 @@ function VideoPlayer() {
     };
 
     const handleProgress = (state) => {
-        const timeRemaining = duration - state.playedSeconds;
+        const timeRemaining = state.playedSeconds;
         setTimeRemaining(timeRemaining);
         if (!seeking) {
         setPlayed(state.played);
         }
-    };
-
-    const handleDuration = (duration) => {
-        setDuration(duration);
     };
 
     const handlePlay = () => {
@@ -103,7 +104,7 @@ function VideoPlayer() {
     };
 
     return (
-        <div className='video-wrapper' ref={playerRefContainer}>
+        <div className={cName} ref={playerRefContainer}>
         <ReactPlayer
             id={'target'}
             ref={playerRef}
@@ -124,13 +125,12 @@ function VideoPlayer() {
             onContextMenu={e => e.preventDefault()}
         />
         <ReactPlayer
-            url={location.state}
+            url={(lastAudio) ? lastAudio[0] : location.state}
             ref={playerRef}
             playing={playing}
             volume={volume}
             controls={false}
             onProgress={handleProgress}
-            onDuration={handleDuration}
             width= "100%"
             height= "100%"
             onPlay={handlePlay}
@@ -143,6 +143,7 @@ function VideoPlayer() {
             }}
         />
         <VideoControls
+            cName={cName}
             handlePlay={handlePlay}
             handlePause={handlePause}
             playing={playing}

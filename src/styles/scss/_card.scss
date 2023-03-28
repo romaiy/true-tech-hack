@@ -1,0 +1,19 @@
+.card {
+    background: #061E31;
+    border-radius: 24px;
+    padding: 48px 56px;
+    margin-bottom: 32px;
+    &__heading {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 24px;
+    }
+    &__text {
+        width: 603.43px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 24px;
+    }
+}

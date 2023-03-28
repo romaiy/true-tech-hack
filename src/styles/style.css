@@ -108,6 +108,15 @@ body {
   font-size: 22px;
   line-height: 33px;
   background: #001424;
+  min-height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+main {
+  flex: 1;
 }
 
 * {
@@ -137,7 +146,7 @@ body {
 .upload {
   background: #061E31;
   border-radius: 24px;
-  padding: 24px 56px 48px;
+  padding: 34px 56px 48px;
   margin-bottom: 32px;
 }
 .upload__heading {
@@ -214,7 +223,6 @@ body {
 .header__row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .header__list {
   display: flex;
@@ -254,6 +262,12 @@ body {
 }
 .header__block:hover:before {
   transform: scaleX(1);
+}
+.header__profile {
+  margin-left: auto;
+}
+.header__logo {
+  margin-right: 64px;
 }
 
 #nav a.active {
@@ -408,10 +422,6 @@ body {
 
 .footer {
   padding: 32px 0;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 .footer__row {
   display: flex;
@@ -432,6 +442,97 @@ body {
 }
 .footer__place {
   margin-left: auto;
+}
+
+.catalog__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.catalog__block {
+  margin-right: 32px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  width: 192px;
+}
+.catalog__block:nth-child(5n) {
+  margin-right: 0;
+  margin-bottom: 32px;
+}
+.catalog__block:last-child {
+  margin-bottom: 0;
+  margin-right: 0;
+}
+.catalog__btn {
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s;
+}
+.catalog__btn:hover {
+  color: #BB9A4D;
+}
+.catalog__back {
+  margin-bottom: 64px;
+  display: flex;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 36px;
+}
+.catalog__back img {
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.card {
+  background: #061E31;
+  border-radius: 24px;
+  padding: 48px 56px;
+  margin-bottom: 32px;
+}
+.card__heading {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 24px;
+}
+.card__text {
+  width: 603.43px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 24px;
+}
+
+.valuation__heading {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+.valuation__video {
+  margin-bottom: 48px;
+}
+.valuation__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.valuation__block {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+}
+.valuation__time {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  margin-left: 16px;
+  color: #BB9A4D;
 }
 
 .container {

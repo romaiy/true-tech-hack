@@ -14,6 +14,11 @@ const routes = [
         path: '/serials',
         text: 'Сериалы',
     },
+    {
+        id: 3,
+        path: '/estimation',
+        text: 'Оценка озвучки',
+    }
 ];
 
 export default routes;

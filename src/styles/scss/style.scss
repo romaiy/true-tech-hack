@@ -14,6 +14,9 @@ $md4: 479.98;
 @import "_movie";
 @import "_download";
 @import "_footer";
+@import "_catalog";
+@import "_card";
+@import "_valuation";
 
 .container {
     max-width: $maxWidthContainer + px;

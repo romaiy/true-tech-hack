@@ -1,5 +1,5 @@
 import React from "react";
-
+import screenfull from "screenfull";
 import play from '../image/play.svg';
 import pause from '../image/pause.svg';
 import up from '../image/volume-plus.svg';
@@ -10,6 +10,7 @@ import screenDown from '../image/ScreenDown.svg';
 import back from '../image/back.svg'
 
 const VideoControls = ({
+    cName,
     handlePlay,
     handlePause,
     playing,
@@ -18,10 +19,10 @@ const VideoControls = ({
     screenState,
     func,
 }) => {
-    
+    console.log(cName);
     return(
         <div>
-        <div className="controls-wrapper-up">
+        <div style={(cName === 'estimation-wrapper') ? {display: 'none'} : {}} className="controls-wrapper-up">
             <img alt="back" style={{width: '40px', heigh: '40px'}} src={back} onClick={func.handleBack}/>
         </div>
         <div className="controls-wrapper">
@@ -29,6 +30,8 @@ const VideoControls = ({
                 <input
                     className="progress"
                     type="range"
+                    style={(cName === 'estimation-wrapper') ? (screenfull.isFullscreen) ? 
+                    {width: '1785px'} : {width: '960px'} : {width: '1785px'}}
                     min={0}
                     max={1}
                     step="any"
@@ -37,7 +40,9 @@ const VideoControls = ({
                     onMouseUp={func.handleSeekMouseUp}
                     onChange={func.handleSeekChange}
                 />
-                <div className="video-time" style={{color: 'white'}}>{func.formatTime(Math.round(timeRemaining))}</div>
+                <div className="video-time" style={{ color: 'white'}}>
+                    {func.formatTime(Math.round(timeRemaining))}
+                </div>
             </div>
             <div className="controls-row">
                 <div className="button-row" style={{marginRight: '64px'}}>

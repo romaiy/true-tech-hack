@@ -25,6 +25,7 @@
 .controls-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 16px;
 }
 
@@ -77,3 +78,7 @@
     }
 }
 
+.estimation-wrapper {
+    position: relative;
+    height: 549.67px;
+}
