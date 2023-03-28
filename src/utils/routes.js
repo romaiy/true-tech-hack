@@ -2,17 +2,17 @@ const routes = [
     {
         id: 0,
         path: '/',
-        text: 'Кнопка',
+        text: 'Главная',
     },
     {
         id: 1,
-        path: '/',
+        path: '/movies',
         text: 'Фильмы',
     },
     {
         id: 2,
-        path: '/player',
-        text: 'Плеер',
+        path: '/serials',
+        text: 'Сериалы',
     },
 ];
 

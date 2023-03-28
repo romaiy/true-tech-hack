@@ -1,0 +1,42 @@
+.film {
+    margin-right: 16px;
+    width: 260px;
+    cursor: pointer;
+    &__row {
+        display: flex;
+        margin-top: 16px;
+    }
+
+    &__tif, &__mmr {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    &__mmr {
+        margin-left: 8px;
+        margin-right: 12px;
+    }
+
+    &__name {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        margin-top: 24px;
+        transition: all 0.3s;
+    }
+    &:nth-child(4n) {
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+    &:hover {
+        .film__name {
+            color: #BB9A4D;
+        }
+    }
+}

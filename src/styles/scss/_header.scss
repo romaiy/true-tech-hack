@@ -47,3 +47,10 @@
         }
     }
 }
+
+#nav a.active {
+    color: #BB9A4D;
+    .header__block::before {
+        transform:  scaleX(1);
+    }
+}

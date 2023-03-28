@@ -6,4 +6,24 @@
         line-height: 32px;
         margin-bottom: 24px;
     }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__btn {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        color: #BB9A4D;
+        cursor: pointer;
+        -ms-user-select: none; 
+        -moz-user-select: none; 
+        -webkit-user-select: none; 
+        user-select: none; 
+    }
 }

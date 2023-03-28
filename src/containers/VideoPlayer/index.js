@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
 import VideoControls from '../../components/VideoControls';
@@ -16,6 +17,8 @@ function VideoPlayer() {
     const playerRefContainer = useRef(null);
     const playerRef = useRef(null);
     const navigate = useNavigate();
+    
+    const location = useLocation();
 
     const handleBack = () => {
         navigate(-1);
@@ -104,7 +107,25 @@ function VideoPlayer() {
         <ReactPlayer
             id={'target'}
             ref={playerRef}
-            url="https://www.youtube.com/watch?v=3cnKTOosN40&ab_channel=Rudi1k"
+            url={'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut'}
+            playing={playing}
+            volume={0}
+            controls={false}
+            width= "100%"
+            height= "100%"
+            onPlay={handlePlay}
+            onPause={handlePause}
+            config={{ file: 
+                {   
+                    attributes: { controlsList: 'nodownload' },
+                    forceVideo: true,
+                }
+            }}
+            onContextMenu={e => e.preventDefault()}
+        />
+        <ReactPlayer
+            url={location.state}
+            ref={playerRef}
             playing={playing}
             volume={volume}
             controls={false}
@@ -114,8 +135,12 @@ function VideoPlayer() {
             height= "100%"
             onPlay={handlePlay}
             onPause={handlePause}
-            config={{ file: { attributes: { controlsList: 'nodownload' } } }}
-            onContextMenu={e => e.preventDefault()}
+            config={{ file: 
+                {   
+                    attributes: { controlsList: 'nodownload' },
+                    forceAudio: true,
+                }
+            }}
         />
         <VideoControls
             handlePlay={handlePlay}
@@ -141,3 +166,6 @@ function VideoPlayer() {
 };
 
 export default VideoPlayer;
+
+/*
+   */

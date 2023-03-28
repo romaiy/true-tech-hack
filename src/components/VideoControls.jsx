@@ -46,7 +46,7 @@ const VideoControls = ({
                         onClick={(playing) ? handlePause : handlePlay}>
                         <img alt="play" src={(playing) ? pause : play}/>
                     </button>
-                    <button 
+                    <button
                         style={{marginLeft: '24px'}}>
                         <img alt="skip" src={skip}/>
                     </button>
