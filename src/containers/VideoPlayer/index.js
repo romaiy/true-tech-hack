@@ -174,11 +174,11 @@ function VideoPlayer({cName, lastAudio}) {
             id={'target'}
             ref={playerRef}
             url={(lastAudio) ? (lastAudio[1] !== 2) ?
-                lastAudio[1] : 'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut' 
+                lastAudio[1] : 'http://91.185.86.61:3000/video/saver.jpg' 
                 : (location.state) ?
                 (location.state.length === 2) ? location.state[1] :
-                'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut' :
-                'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut'}
+                'http://91.185.86.61:3000/video/saver.jpg' :
+                'http://91.185.86.61:3000/video/saver.jpg'}
             playing={playing}
             volume={vidVolume}
             controls={false}
