@@ -45,21 +45,13 @@ const Movies = () => {
             console.error(error);
         }
     };
-
-    const data = [
-        {
-            name: "fsdf",
-            audurl: "asfsd",
-            vidurl: "sadfsd"
-        }
-    ]
     
     return(
         <div className="movies">
             <div className="movies__content container">
                 <MoviesDownloaded handleFileSelect={handleFileSelect}/>
                 <h2 style={{marginTop: '24px'}} className="download__heading">Для получения нового списка обновите страницу.</h2>
-                <MoviesList movies={data}/>
+                <MoviesList movies={videoData}/>
             </div>
         </div>
     );
