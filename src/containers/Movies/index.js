@@ -12,12 +12,8 @@ const Movies = () => {
         if (!isLoaded) {
             axios.get(DOWNLOAD_VIDEO_PARSE_URL)
             .then(response => {
-                if (videoData === response.data) {
-                    setIsLoaded(false);
-                } else {
-                    setVideoData(response.data);
-                    setIsLoaded(true);
-                }
+                setVideoData(response.data);
+                setIsLoaded(true);
             })
             .catch(error => {
                 console.log(error);
@@ -45,7 +41,6 @@ const Movies = () => {
                 }
             });
             console.log(response);
-            setIsLoaded(false);
         } catch (error) {
             console.error(error);
         }
@@ -55,6 +50,7 @@ const Movies = () => {
         <div className="movies">
             <div className="movies__content container">
                 <MoviesDownloaded handleFileSelect={handleFileSelect}/>
+                <h2 style={{marginTop: '24px'}} className="download__heading">Для получения нового списка обновите страницу.</h2>
                 <MoviesList movies={videoData}/>
             </div>
         </div>
