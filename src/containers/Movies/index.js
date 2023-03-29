@@ -29,6 +29,10 @@ const Movies = () => {
         }
     };
 
+    const handleUpdate = () => {
+        setIsLoaded(false);
+    };
+
     const handleVideoSubmit = async file => {
         const formData = new FormData();
         formData.append('file', file);
@@ -41,6 +45,7 @@ const Movies = () => {
                 }
             });
             console.log(response);
+            handleUpdate();
         } catch (error) {
             console.error(error);
         }
@@ -57,7 +62,7 @@ const Movies = () => {
     return(
         <div className="movies">
             <div className="movies__content container">
-                <MoviesDownloaded handleFileSelect={handleFileSelect}/>
+                <MoviesDownloaded handleUpdate={handleUpdate} handleFileSelect={handleFileSelect}/>
                 <MoviesList movies={data}/>
             </div>
         </div>
