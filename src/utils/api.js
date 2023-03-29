@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://91.185.86.61:8080';
 const VIDEO_UPLOAD_URL = `${API_URL}/save`;
 const VIDEO_PARSE_URL = `${API_URL}/tiflocommented`;
 const DOWNLOAD_VIDEO_PARSE_URL = `${API_URL}/getprocessed`;
