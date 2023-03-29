@@ -12,8 +12,12 @@ const Movies = () => {
         if (!isLoaded) {
             axios.get(DOWNLOAD_VIDEO_PARSE_URL)
             .then(response => {
-                setVideoData(response.data);
-                setIsLoaded(true);
+                if (videoData === response.data) {
+                    setIsLoaded(false);
+                } else {
+                    setVideoData(response.data);
+                    setIsLoaded(true);
+                }
             })
             .catch(error => {
                 console.log(error);
@@ -29,10 +33,6 @@ const Movies = () => {
         }
     };
 
-    const handleUpdate = () => {
-        setIsLoaded(false);
-    };
-
     const handleVideoSubmit = async file => {
         const formData = new FormData();
         formData.append('file', file);
@@ -45,7 +45,7 @@ const Movies = () => {
                 }
             });
             console.log(response);
-            handleUpdate();
+            setIsLoaded(false);
         } catch (error) {
             console.error(error);
         }
