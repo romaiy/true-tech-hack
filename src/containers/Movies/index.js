@@ -50,20 +50,12 @@ const Movies = () => {
             console.error(error);
         }
     };
-
-    const data = [
-        {
-            name: 'gec',
-            audurl: 'http://archive.org/download/20210610_20210610_0439/Братство.mp3',
-            vidurl: 'https://www.youtube.com/watch?v=qo3ewdnBDnA&t=104s&ab_channel=WorkGeekOut',
-        }
-    ];
     
     return(
         <div className="movies">
             <div className="movies__content container">
-                <MoviesDownloaded handleUpdate={handleUpdate} handleFileSelect={handleFileSelect}/>
-                <MoviesList movies={data}/>
+                <MoviesDownloaded handleFileSelect={handleFileSelect}/>
+                <MoviesList movies={videoData}/>
             </div>
         </div>
     );
