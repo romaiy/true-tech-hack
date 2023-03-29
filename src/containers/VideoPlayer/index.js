@@ -174,11 +174,11 @@ function VideoPlayer({cName, lastAudio}) {
             id={'target'}
             ref={playerRef}
             url={(lastAudio) ? (lastAudio[1] !== 2) ?
-                lastAudio[1] : 'http://91.185.86.61:3000/video/saver.jpg' 
+                lastAudio[1] : 'http://91.185.86.61:3000/video/fire.mp4' 
                 : (location.state) ?
                 (location.state.length === 2) ? location.state[1] :
-                'http://91.185.86.61:3000/video/saver.jpg' :
-                'http://91.185.86.61:3000/video/saver.jpg'}
+                'http://91.185.86.61:3000/video/fire.mp4' :
+                'http://91.185.86.61:3000/video/fire.mp4'}
             playing={playing}
             volume={vidVolume}
             controls={false}
