@@ -59,3 +59,52 @@
         transform:  scaleX(1);
     }
 }
+
+@media(max-width: 991px) {
+    .header {
+        &__block {
+            padding: 6px 12px;
+        }
+        &__logo {
+            margin-right: 32px;
+        }
+    }
+}
+
+@media(max-width: 709px) {
+    .header {
+        &__block {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 18px;
+        }
+    }
+}
+
+@media(max-width: 585px) {
+    .header {
+        &__block {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+    }
+}
+
+@media(max-width: 530px) {
+    .header {
+        &__block {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        &__logo { 
+            display: none;
+        }
+        &__profile { 
+            display: none;
+        }
+        &__row {
+            justify-content: space-between;
+        }
+    }
+}   

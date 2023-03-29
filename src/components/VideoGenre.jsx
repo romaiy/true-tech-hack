@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import VideoReceived from "./VideoReceived";
 
 const VideoGenre = ({genre, films}) => {
     const location = useLocation();
+    const [width, setWidth] = useState(window.screen.width);
+
+    useEffect(() => {
+        function handleResize() {
+            setWidth(window.screen.width);
+        }
+        
+        window.addEventListener('resize', handleResize);
+        
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [])
     
     if (location.pathname === '/') {
         if (genre === 'Детективы') {
@@ -20,7 +33,7 @@ const VideoGenre = ({genre, films}) => {
                         </div>
                     </div>
                     <ul className="genre__list">
-                        {films && films.filter((film, idx) => idx < 4).map((film) => {
+                        {films && films.filter((film, idx) => idx < ((width <= 1100) ? (width <= 991) ? 2 : 3 : 4)).map((film) => {
                             return(
                                 <NavLink className="film" key={film.name} to={'/player'} state={film.url}>
                                     <VideoReceived film={film}/>

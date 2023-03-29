@@ -21,7 +21,7 @@ const VideoUpload = ({handleFileSelect, handleClose, style}) => {
                         <p className="upload__text">У фильма, который вы хотели посмотреть, нет тифлокомментариев? Вы можете запросить у сервиса их создание!</p>
                         <Upload handleFileSelect={handleFileSelect}/>
                     </div>
-                    <img alt="im" src={image}/>
+                    <img className="upload__img" alt="im" src={image}/>
                 </div>
             </div>
         </div>
