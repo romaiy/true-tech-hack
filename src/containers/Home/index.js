@@ -54,11 +54,24 @@ const Home = () => {
         localStorage.setItem('visitedBefore', true);
     };
 
+    const data = {
+        'Боевик': 
+        [
+            {
+                name: 'asdasd',
+                url: 'http://archive.org/download/20210610_20210610_0439/Братство.mp3',
+                keys: keysData,
+            }
+        ]
+    };
+
+    const keys = Object.keys(data);
+
     return(
         <div className="home">
             <div className="home__content container">
                 <VideoUpload handleFileSelect={handleFileSelect} handleClose={handleClose} style={style}/>
-                <VideoList data={videoData} keys={keysData}/>
+                <VideoList data={data} keys={keys}/>
             </div>
         </div>
     );

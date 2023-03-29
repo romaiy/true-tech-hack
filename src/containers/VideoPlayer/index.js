@@ -8,7 +8,12 @@ import './VideoPlayer.css';
 import { lastLink } from '../../Data/lastLink';
 
 function VideoPlayer({cName, lastAudio}) {
-    const [volume, setVolume] = useState(0.1);
+    const location = useLocation();
+    const [audVolume, setAudVolume] = useState(0.1);
+    const [vidVolume, setVidVolume] = useState(
+        (lastAudio) ? (lastAudio[1] !== 2) ?
+        0.2 : 0 : (location.state) ?
+        (location.state.length === 2) ? 0.2 : 0 : 0);
     const [played, setPlayed] = useState(0);
     const [seeking, setSeeking] = useState(false);
     const [playing, setPlaying] = useState(false);
@@ -17,7 +22,6 @@ function VideoPlayer({cName, lastAudio}) {
     const playerRefContainer = useRef(null);
     const playerRef = useRef(null);
     const navigate = useNavigate();
-    const location = useLocation();
 
     useEffect(() => {
         if (location.state) {
@@ -35,24 +39,79 @@ function VideoPlayer({cName, lastAudio}) {
         navigate(-1);
     };
 
-    const handleVolumeChange = (e) => {
-        setVolume(parseFloat(e.target.value));
-    };
-
     const handleVolumeUp = () => {
-        if (volume < 1) {
-            setVolume(volume + 0.1);
+        if (lastAudio) {
+            if (lastAudio[1] === 2) {
+                if (audVolume < 0.6) {
+                    setAudVolume(audVolume + 0.1);
+                } else {
+                    setAudVolume(0.7);
+                }
+                return;
+            }
+        } else if (location.state) {
+            if (location.state.length > 2) {
+                if (audVolume < 0.6) {
+                    setAudVolume(audVolume + 0.1);
+                } else {
+                    setAudVolume(0.7);
+                }
+                return;
+            }
+        }
+
+        if (vidVolume < 0.9) {
+            if (vidVolume === 0) {
+                setVidVolume(vidVolume + 0.2);
+            } else {
+                setVidVolume(vidVolume + 0.1);
+            }
+            if (audVolume < 0.6) {
+                setAudVolume(audVolume + 0.1);
+            } else {
+                setAudVolume(0.7);
+            }
         } else {
-            setVolume(1);
+            setVidVolume(1);
         }
     };
 
     const handleVolumeDown = () => {
-        if (volume > 0.1) {
-            setVolume(volume - 0.1);
-        } else {
-            setVolume(0);
+        if (lastAudio) {
+            if (lastAudio[1] === 2) {
+                if (audVolume > 0.1) {
+                    setAudVolume(audVolume - 0.1);
+                } else {
+                    setAudVolume(0);
+                };
+                return;
+            }
+        } else if (location.state) {
+            if (location.state.length > 2) {
+                if (audVolume > 0.1) {
+                    setAudVolume(audVolume - 0.1);
+                } else {
+                    setAudVolume(0);
+                };
+                return;
+            }
         }
+        
+        if (audVolume < 0.05) {
+            setVidVolume(0);
+            return;
+        };
+        if (vidVolume > 0.1) {
+            if (vidVolume === 1) {
+                setVidVolume(vidVolume - 0.2);
+            } else {
+                setVidVolume(vidVolume - 0.1);
+            }
+            setAudVolume(audVolume - 0.1);
+        } else {
+            setVidVolume(0);
+            setAudVolume(0);
+        };
     };
 
     const handleSeekChange = (e) => {
@@ -121,7 +180,7 @@ function VideoPlayer({cName, lastAudio}) {
                 'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut' :
                 'https://www.youtube.com/watch?v=qo3ewdnBDnA&ab_channel=WorkGeekOut'}
             playing={playing}
-            volume={0}
+            volume={vidVolume}
             controls={false}
             width= "100%"
             height= "100%"
@@ -141,7 +200,7 @@ function VideoPlayer({cName, lastAudio}) {
             style={{zIndex: -1000}}
             ref={playerRef}
             playing={playing}
-            volume={volume}
+            volume={audVolume}
             controls={false}
             onProgress={handleProgress}
             width= "0"
@@ -168,7 +227,6 @@ function VideoPlayer({cName, lastAudio}) {
                 handleSeekMouseUp,
                 handleSeekChange,
                 handleFullscreenClick,
-                handleVolumeChange,
                 handleVolumeUp,
                 handleVolumeDown,
                 formatTime,
@@ -180,6 +238,3 @@ function VideoPlayer({cName, lastAudio}) {
 };
 
 export default VideoPlayer;
-
-/*
-   */

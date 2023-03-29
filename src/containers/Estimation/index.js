@@ -12,7 +12,10 @@ const Estimation = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(EVALUATION_POST_URL, { text })
+        const formData = new FormData();
+        formData.append('message', text);
+
+        axios.post(EVALUATION_POST_URL, formData)
         .then(response => {
             console.log(response.data);
             setText('');
